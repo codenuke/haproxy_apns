@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+  haproxy:
+    image: haproxy:alpine
+    container_name: haproxy
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./haproxy_config:/usr/local/etc/haproxy
+      - ./haproxy_config/ssl:/etc/ssl
